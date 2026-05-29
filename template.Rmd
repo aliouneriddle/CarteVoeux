@@ -1,0 +1,84 @@
+---
+knit: (function(inputFile, encoding){rmarkdown::render(inputFile,encoding=encoding,output_dir="./resultats")})
+output:
+  pdf_document: 
+    extra_dependencies:
+      - arabtex
+      - verses
+    #   lmodern: null
+    latex_engine: xelatex
+    # includes:
+    #   in_header: "./templates/preambule.tex"
+    pandoc_args: 
+      - "--variable=geometry:top=4cm"
+      - "--variable=geometry:bottom=2cm"
+      - "--variable=geometry:left=2cm"
+      - "--variable=geometry:right=2cm"
+      - "--variable=geometry:headheight=2cm"
+      - "--variable=geometry:footskip=1cm"
+      - "--variable=geometry:marginparwidth=2cm"
+
+# header-includes:
+#    # - \newfontfamily\arabicfont[Script=Arabic]{MaPolice}  # Spécifiez la police pour le script arabe
+#    # - \newfontfamily\arabicfont[Script=Arabic]{MaPolice}[Path=./fonts/]
+#    - \usepackage{arabtex}  # Charge le package arabtex
+#    - \usepackage{utf8}     # Encode le texte en UTF-8
+   
+# mainfontoptions: "Path=./fonts/Marhey/static/"
+# mainfont: "Marhey-Bold"  # Nom exact de la police locale
+---
+
+# INTRODUCTION
+
+
+\newpage
+
+## Exemple de code non voc
+```{=latex}
+\setarab % choose the language specific conventions
+
+% \transtrue % additionally switch on the transliteration
+
+\arabtrue % print arabic text ... is on by default anyway
+\fullvocalize
+\rightline {\RL{\Huge{^gu.hA wa-.himAruhu}}}
+\hrulefill
+\vspace{2cm}
+
+\vocalize % switch diacritics for short vowels on
+\begin{RLtext}
+‘at_A .sadIquN ’il_A ^gu.hA ya.tlubu minhu .himArahu li-yarkabahu
+fI safraTiN qa.sIraTiN wa-qAla lahu:
+sawfa ’u‘Iduhu ’ilayka fI al-masA’i, wa-’adfa‘u laka ’u^graTaN.
+fa-qAla ^gu.hA:
+’anA ’AsifuN ^giddaN ’annI lA ’asta.tI‘u ’an ’u.haqqiqa
+laka ra.gbataka, fa-al.himAru laysa hunA al-yawma.
+wa-qabla ’an yutimmu ^gu.hA kalAmahu
+bada’a al-.himAru yanhaqu fI i.s.tablihi.
+fa-qAla lahu .sadIquhu:
+’innI ’asma‘u .himAraka yA ^gu.hA yanhaqu.
+fa-qAla lahu ^gu.hA:
+.garIbuN ’amruka yA .sadIqI!
+’a-tu.saddiqu al-.himAra wa-tuka_d_dibunI?
+\end{RLtext}
+```
+
+
+\newpage
+## poème 
+
+```{=latex}
+\setarab
+\vocalize
+
+% Définir la largeur des hémistiches (ajustez selon vos besoins)
+\setversedim{0.3\textwidth}{0.1\textwidth}
+
+% Exemple de vers avec \halfverses
+\begin{RLtext}
+\halfverses{^gu.hA wa-.himAruhu}{wa-mA kAna fI 'l-qa.sa.i}
+\end{RLtext}
+
+```
+
+

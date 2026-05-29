@@ -1,0 +1,25 @@
+% Pour écriture en arabe
+\usepackage{auxhook}
+
+\usepackage{arabtex} % Ajout du package arabtex
+\usepackage{ragged2e}
+\usepackage{twoblks}
+\usepackage{verses}
+
+
+\usepackage{tcolorbox}
+ 
+\usepackage{polyglossia}
+
+
+% Pour includes des pages pdf dans un document LaTeX
+\usepackage{pdfpages}
+
+\setcode{arabtex}
+
+%\newfontfamily\arabicfont[Script=Arabic, Scale=1.2]{Simplified Arabic}
+\newfontfamily\arabicfont[Script=Arabic, Scale=1.7]{./fonts/Marhey/static/Marhey-Bold.ttf}
+\newfontfamily\amirifont{Amiri}[Script=Arabic]
+% 
+% % Configurez la police pour supporter l'arabe (utilisez une police qui prend en charge l'arabe, comme Amiri ou Scheherazade)
+%\newfontfamily\arabicfont[Script=Arabic, Scale=1.1]{Amiri}
