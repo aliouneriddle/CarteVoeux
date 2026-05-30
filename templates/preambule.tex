@@ -1,25 +1,47 @@
-% Pour écriture en arabe
+% =========================================================================
+% 1. PACKAGES DE BASE & EXTENSIONS GRAPHIQUES
+% =========================================================================
 \usepackage{auxhook}
-
-\usepackage{arabtex} % Ajout du package arabtex
-\usepackage{ragged2e}
-\usepackage{twoblks}
-\usepackage{verses}
-
-
 \usepackage{tcolorbox}
- 
-\usepackage{polyglossia}
-
-
-% Pour includes des pages pdf dans un document LaTeX
 \usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{xcolor} 
+
+% =========================================================================
+% 2. REMPLACEMENT DE GEOMETRY : REGLAGE DES MARGES PAR PRIMITIVES LATEX
+% =========================================================================
+% Supprime définitivement l'erreur "Loading a class or package in a group"
+\pdfpagewidth=\paperwidth
+\pdfpageheight=\paperheight
+
+\setlength{\topmargin}{-2cm}       % Remonte le texte au maximum en haut
+\setlength{\textheight}{27cm}      % Donne une grande hauteur de zone utile
+\setlength{\oddsidemargin}{-0.5cm}  % Aligne la marge gauche à 2cm réels
+\setlength{\evensidemargin}{-0.5cm} % Aligne la marge droite à 2cm réels
+\setlength{\textwidth}{17.5cm}     % Largeur de la zone d'écriture
+
+% =========================================================================
+% 3. DÉFINITION DES COULEURS ET POLICES SYSTÈME
+% =========================================================================
+\definecolor{monOr}{HTML}{D4AF37} 
+
+\newfontfamily\policevoeux{Calibri} 
+\newfontfamily\policenom{LaBelleAurore-Regular}[Path = fonts/La_Belle_Aurore/, Extension = .ttf]
+
+% =========================================================================
+% 4. PACKAGES & CONFIGURATION DU MOTEUR ARABTEX
+% =========================================================================
+\usepackage{arabtex} 
+\usepackage{utf8}
 
 \setcode{arabtex}
 
-%\newfontfamily\arabicfont[Script=Arabic, Scale=1.2]{Simplified Arabic}
+% Configuration des polices arabes spécifiques
 \newfontfamily\arabicfont[Script=Arabic, Scale=1.7]{./fonts/Marhey/static/Marhey-Bold.ttf}
 \newfontfamily\amirifont{Amiri}[Script=Arabic]
-% 
-% % Configurez la police pour supporter l'arabe (utilisez une police qui prend en charge l'arabe, comme Amiri ou Scheherazade)
-%\newfontfamily\arabicfont[Script=Arabic, Scale=1.1]{Amiri}
+
+% Activation du rendu des voyelles par défaut dans ArabTeX
+\setarab
+\arabtrue
+\fullvocalize
