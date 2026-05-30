@@ -2,82 +2,97 @@
 knit: (function(inputFile, encoding){rmarkdown::render(inputFile,encoding=encoding,output_dir="./resultats")})
 output:
   pdf_document: 
-    extra_dependencies:
-      - arabtex
-      - verses
-    #   lmodern: null
     latex_engine: xelatex
     # includes:
-    #   in_header: "./templates/preambule.tex"
+    #   in_header:
+    #     - "./templates/preambule.tex"
     pandoc_args: 
-      - "--variable=geometry:top=4cm"
-      - "--variable=geometry:bottom=2cm"
+      - "--variable=geometry:top=1cm"
+      - "--variable=geometry:bottom=1cm"
       - "--variable=geometry:left=2cm"
       - "--variable=geometry:right=2cm"
       - "--variable=geometry:headheight=2cm"
       - "--variable=geometry:footskip=1cm"
       - "--variable=geometry:marginparwidth=2cm"
+header-includes:
+  - \usepackage{graphicx}
+  - \usepackage{eso-pic}
+  - \usepackage{arabtex}
+  - \usepackage{utf8}
+  - \usepackage{xcolor} 
+  - \definecolor{monOr}{HTML}{D4AF37} # Définition d'un joli doré royal
+  - \newfontfamily\policevoeux{Calibri} 
+  # - \newfontfamily\policenom{LaBelleAurore-Regular}[Path = fonts/La_Belle_Aurore/, Extension = .ttf]
+  - \newfontfamily\policenom{Mynerve-Regular}[Path = fonts/Mynerve/, Extension = .ttf]
+  
 
-# header-includes:
-#    # - \newfontfamily\arabicfont[Script=Arabic]{MaPolice}  # Spécifiez la police pour le script arabe
-#    # - \newfontfamily\arabicfont[Script=Arabic]{MaPolice}[Path=./fonts/]
-#    - \usepackage{arabtex}  # Charge le package arabtex
-#    - \usepackage{utf8}     # Encode le texte en UTF-8
-   
-# mainfontoptions: "Path=./fonts/Marhey/static/"
-# mainfont: "Marhey-Bold"  # Nom exact de la police locale
+params:
+  nom: "Destinataire" # Valeur par défaut
+  titre: "Cher"
 ---
 
-# INTRODUCTION
-
-
-\newpage
-
-## Exemple de code non voc
 ```{=latex}
-\setarab % choose the language specific conventions
+\AddToShipoutPictureBG*{
+  \includegraphics[width=\paperwidth,height=\paperheight]{images/templateTabaski.png}
+}
 
-% \transtrue % additionally switch on the transliteration
+\pagestyle{empty}
 
-\arabtrue % print arabic text ... is on by default anyway
-\fullvocalize
-\rightline {\RL{\Huge{^gu.hA wa-.himAruhu}}}
-\hrulefill
-\vspace{2cm}
-
-\vocalize % switch diacritics for short vowels on
-\begin{RLtext}
-‘at_A .sadIquN ’il_A ^gu.hA ya.tlubu minhu .himArahu li-yarkabahu
-fI safraTiN qa.sIraTiN wa-qAla lahu:
-sawfa ’u‘Iduhu ’ilayka fI al-masA’i, wa-’adfa‘u laka ’u^graTaN.
-fa-qAla ^gu.hA:
-’anA ’AsifuN ^giddaN ’annI lA ’asta.tI‘u ’an ’u.haqqiqa
-laka ra.gbataka, fa-al.himAru laysa hunA al-yawma.
-wa-qabla ’an yutimmu ^gu.hA kalAmahu
-bada’a al-.himAru yanhaqu fI i.s.tablihi.
-fa-qAla lahu .sadIquhu:
-’innI ’asma‘u .himAraka yA ^gu.hA yanhaqu.
-fa-qAla lahu ^gu.hA:
-.garIbuN ’amruka yA .sadIqI!
-’a-tu.saddiqu al-.himAra wa-tuka_d_dibunI?
-\end{RLtext}
-```
-
-
-\newpage
-## poème 
-
-```{=latex}
 \setarab
-\vocalize
+\arabtrue
+\fullvocalize
 
-% Définir la largeur des hémistiches (ajustez selon vos besoins)
-\setversedim{0.3\textwidth}{0.1\textwidth}
 
-% Exemple de vers avec \halfverses
+\centering
+\vspace*{-1.2cm}
+
+% =========================================================
+% GRAND TITRE : EID AL ADHA MUBARAK
+% =========================================================
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{images/tabaski2026.png}
+\end{figure}
+
+\begin{center}
+{\policenom \fontsize{14}{8}\selectfont \textbf{Déweuneuty à toi !}} \\
+\scalebox{3.5}{% Multiplie la taille du nom par 2.0 sur la même ligne
+  {\policenom  \textbf{\textsc{`r params$titre` `r params$nom`}}}
+}
+\end{center}
+
+\vspace{0.3cm} % Espace entre le titre et le premier doua
+
+% =========================================================
+% PREMIER DOUA (En grands caractères, découpé en 3 lignes)
+% =========================================================
+\Huge
 \begin{RLtext}
-\halfverses{^gu.hA wa-.himAruhu}{wa-mA kAna fI 'l-qa.sa.i}
+al-llahumma taqabbal minnA, 'innaka 'anta a-ssamI`u al-`alImu \par
+wa tub `alaynA, 'innaka 'anta a-ttawwAbu ar-ra.hImu. \par
 \end{RLtext}
+
+\footnotesize
+\textit{Ô Allah, accepte de nous nos œuvres, Tu es l'Audient,\\
+l'Omniscient. Reviens à nous par Ton pardon, Tu es l'Accueillant au repentir, le Très Miséricordieux.}
+
+\vspace{0.5cm}
+
+% =========================================================
+% DEUXIÈME DOUA (En grands caractères, découpé en 3 lignes)
+% =========================================================
+\Large
+
+\RL{al-llahumma hA_dA minka `anni wa `an ahlI, fataqabbalhu} \par
+\raisebox{-0.1cm}{\includegraphics[height=0.5cm]{images/sallahouAleyhiWaSallam.png}}\RL{kamA taqabbalta min 'ibrAhIma al-_halIlika wa min mu.hammaduN} \par
+
+\scalebox{1.0}{\textcolor{monOr}{\RL{.habIbika}}}
+
+
+\vspace{0.05cm}
+\footnotesize
+\textit{Oh Mon Dieu ceci vient de Toi et T’appartient ; accepte le de moi et de ma famille ; agrée mon sacrifice de même que tu as agréé celui de ton confident Ibrahim et celui de ton préféré (sopé) Mouhammad.}
+
 
 ```
 
