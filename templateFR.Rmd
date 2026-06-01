@@ -25,11 +25,13 @@ header-includes:
   # - \newfontfamily\policenom{LaBelleAurore-Regular}[Path = fonts/La_Belle_Aurore/, Extension = .ttf]
   - \newfontfamily\policenom{Mynerve-Regular}[Path = fonts/Mynerve/, Extension = .ttf]
   
-
 params:
   nom: "Destinataire" # Valeur par défaut
   titre: "Cher"
+  voeu: "Texte du vœu par défaut si vide"
 ---
+
+
 
 ```{=latex}
 \AddToShipoutPictureBG*{
@@ -54,17 +56,30 @@ params:
 \includegraphics[width=0.6\textwidth]{images/tabaski2026.png}
 \end{figure}
 
-\begin{center}
-{\policenom \fontsize{14}{8}\selectfont \textbf{Déweuneuty à toi !}} \\
-\scalebox{3.5}{% Multiplie la taille du nom par 2.0 sur la même ligne
-  {\policenom  \textbf{\textsc{`r params$titre` `r params$nom`}}}
-}
-\end{center}
-
 \vspace{0.3cm} % Espace entre le titre et le premier doua
 
 % =========================================================
 % PREMIER DOUA (En grands caractères, découpé en 3 lignes)
+% =========================================================
+\Huge
+
+\begin{center}
+{\policenom \fontsize{14}{8}\selectfont }
+\scalebox{1.5}{% Multiplie la taille du nom par 2.0 sur la même ligne
+  {\policenom  \textbf{\textsc{`r params$titre` `r params$nom`}}}
+}
+\end{center}
+
+\begin{center}
+{\policenom \fontsize{15}{8}\selectfont \textbf{
+`r params$voeu`
+}}
+\end{center}
+
+\vspace{0.5cm}
+
+% =========================================================
+% DEUXIÈME DOUA (En grands caractères, découpé en 3 lignes)
 % =========================================================
 \Huge
 \begin{RLtext}
@@ -75,24 +90,6 @@ wa tub `alaynA, 'innaka 'anta a-ttawwAbu ar-ra.hImu. \par
 \footnotesize
 \textit{Ô Allah, accepte de nous nos œuvres, Tu es l'Audient,\\
 l'Omniscient. Reviens à nous par Ton pardon, Tu es l'Accueillant au repentir, le Très Miséricordieux.}
-
-\vspace{0.5cm}
-
-% =========================================================
-% DEUXIÈME DOUA (En grands caractères, découpé en 3 lignes)
-% =========================================================
-\Large
-
-\RL{al-llahumma hA_dA minka `anni wa `an ahlI, fataqabbalhu} \par
-\raisebox{-0.1cm}{\includegraphics[height=0.5cm]{images/sallahouAleyhiWaSallam.png}}\RL{kamA taqabbalta min 'ibrAhIma al-_halIlika wa min mu.hammaduN} \par
-
-\scalebox{1.0}{\textcolor{monOr}{\RL{.habIbika}}}
-
-
-\vspace{0.05cm}
-\footnotesize
-\textit{Oh Mon Dieu ceci vient de Toi et T’appartient ; accepte le de moi et de ma famille ; agrée mon sacrifice de même que tu as agréé celui de ton confident Ibrahim et celui de ton préféré (sopé) Mouhammad.}
-
 
 ```
 
