@@ -144,7 +144,7 @@ git commit -m "Optimisation de l'extraction aléatoire des vœux avec dplyr"
 
 ### 3. Publier et Envoyer sur le Dépôt Distant (GitHub/GitLab)
 
-````text
+```text
 # Envoyer une nouvelle branche sur le serveur pour la première fois (Upstream)
 git push --set-upstream origin VoeuxEnFr
 
@@ -153,8 +153,8 @@ git push origin VoeuxEnFr
 
 ```
 
-
 ## 4. Gérer les Branches et mettre son travail en attente (git stash)
+
 Si vous devez changer de branche alors que vos modifications actuelles ne sont pas encore prêtes à être commitées, vous devez utiliser le système de mise en attente (le "remisage") pour ne pas perdre votre travail.
 
 ### 4.1 Mettre son travail actuel en attente (à l'abri) :
